@@ -57,6 +57,7 @@ class FullscreenActivity : AppCompatActivity() {
         fullscreen_content.setOnClickListener { toggle() }
 
         val intent = intent
+        fullscreen_content.text = intent.getStringExtra("object")
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {

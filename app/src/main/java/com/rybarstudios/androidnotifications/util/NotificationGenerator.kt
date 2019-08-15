@@ -3,15 +3,21 @@ package com.rybarstudios.androidnotifications.util
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.rybarstudios.androidnotifications.ui.MainActivity
 import com.rybarstudios.androidnotifications.R
+import com.rybarstudios.androidnotifications.ui.FullscreenActivity
 
 object NotificationGenerator {
 
     fun getNotification(context: Context) {
+        val intent = Intent(context, FullscreenActivity::class.java)
+        intent.putExtra("object", "Notification Launched")
+        val pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_ONE_SHOT)
 
 
         val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -36,6 +42,7 @@ object NotificationGenerator {
             .setSmallIcon(android.R.drawable.ic_media_play)
             .setColor(context.resources.getColor(R.color.colorAccent))
             .setDefaults(Notification.DEFAULT_ALL)
+            .setContentIntent(pendingIntent)
         notificationManager.notify(MainActivity.NOTIFICATION_ID, builder.build())
     }
 }
