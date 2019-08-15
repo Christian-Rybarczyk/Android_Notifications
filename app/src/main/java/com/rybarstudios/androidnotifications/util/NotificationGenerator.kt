@@ -19,6 +19,10 @@ object NotificationGenerator {
         intent.putExtra("object", "Notification Launched")
         val pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_ONE_SHOT)
 
+        val actionIntent = Intent(context, FullscreenActivity::class.java)
+        actionIntent.putExtra("object", "Action intent displayed!")
+        val actionPendingIntent = PendingIntent.getActivity(context, 22, actionIntent, PendingIntent.FLAG_ONE_SHOT)
+
 
         val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
@@ -43,6 +47,7 @@ object NotificationGenerator {
             .setColor(context.resources.getColor(R.color.colorAccent))
             .setDefaults(Notification.DEFAULT_ALL)
             .setContentIntent(pendingIntent)
+            .addAction(android.R.drawable.ic_menu_agenda, "Action intent title", actionPendingIntent)
         notificationManager.notify(MainActivity.NOTIFICATION_ID, builder.build())
     }
 }
