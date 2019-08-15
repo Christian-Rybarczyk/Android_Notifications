@@ -1,7 +1,8 @@
-package com.rybarstudios.androidnotifications
+package com.rybarstudios.androidnotifications.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.rybarstudios.androidnotifications.R
 import com.rybarstudios.androidnotifications.util.NotificationGenerator.getNotification
 import kotlinx.android.synthetic.main.activity_main.*
 

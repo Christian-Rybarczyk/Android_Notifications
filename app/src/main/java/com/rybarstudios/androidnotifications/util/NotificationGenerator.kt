@@ -6,7 +6,7 @@ import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import com.rybarstudios.androidnotifications.MainActivity
+import com.rybarstudios.androidnotifications.ui.MainActivity
 import com.rybarstudios.androidnotifications.R
 
 object NotificationGenerator {
